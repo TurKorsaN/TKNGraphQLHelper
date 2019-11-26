@@ -8,12 +8,22 @@
 
 /* Begin PBXBuildFile section */
 		E17E90D3238C248C00CCDFFE /* TKNGraphQLHelper.h in Headers */ = {isa = PBXBuildFile; fileRef = E17E90D1238C248C00CCDFFE /* TKNGraphQLHelper.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		E17E90DA238C24BC00CCDFFE /* TKNGraphQLHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = E17E90D9238C24BC00CCDFFE /* TKNGraphQLHelper.swift */; };
+		E17E90DC238C24F400CCDFFE /* TKNGraphQLQuery.swift in Sources */ = {isa = PBXBuildFile; fileRef = E17E90DB238C24F400CCDFFE /* TKNGraphQLQuery.swift */; };
+		E17E90DF238C256400CCDFFE /* TKNAnyEncodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = E17E90DE238C256400CCDFFE /* TKNAnyEncodable.swift */; };
+		E17E90E1238C257E00CCDFFE /* TKNAnyDecodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = E17E90E0238C257E00CCDFFE /* TKNAnyDecodable.swift */; };
+		E17E90E3238C25B200CCDFFE /* TKNAnyCodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = E17E90E2238C25B200CCDFFE /* TKNAnyCodable.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		E17E90CE238C248C00CCDFFE /* TKNGraphQLHelper.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = TKNGraphQLHelper.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E17E90D1238C248C00CCDFFE /* TKNGraphQLHelper.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TKNGraphQLHelper.h; sourceTree = "<group>"; };
 		E17E90D2238C248C00CCDFFE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E17E90D9238C24BC00CCDFFE /* TKNGraphQLHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TKNGraphQLHelper.swift; sourceTree = "<group>"; };
+		E17E90DB238C24F400CCDFFE /* TKNGraphQLQuery.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TKNGraphQLQuery.swift; sourceTree = "<group>"; };
+		E17E90DE238C256400CCDFFE /* TKNAnyEncodable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TKNAnyEncodable.swift; sourceTree = "<group>"; };
+		E17E90E0238C257E00CCDFFE /* TKNAnyDecodable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TKNAnyDecodable.swift; sourceTree = "<group>"; };
+		E17E90E2238C25B200CCDFFE /* TKNAnyCodable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TKNAnyCodable.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -46,10 +56,23 @@
 		E17E90D0238C248C00CCDFFE /* TKNGraphQLHelper */ = {
 			isa = PBXGroup;
 			children = (
+				E17E90DD238C254700CCDFFE /* Helper */,
 				E17E90D1238C248C00CCDFFE /* TKNGraphQLHelper.h */,
 				E17E90D2238C248C00CCDFFE /* Info.plist */,
+				E17E90D9238C24BC00CCDFFE /* TKNGraphQLHelper.swift */,
+				E17E90DB238C24F400CCDFFE /* TKNGraphQLQuery.swift */,
 			);
 			path = TKNGraphQLHelper;
+			sourceTree = "<group>";
+		};
+		E17E90DD238C254700CCDFFE /* Helper */ = {
+			isa = PBXGroup;
+			children = (
+				E17E90DE238C256400CCDFFE /* TKNAnyEncodable.swift */,
+				E17E90E0238C257E00CCDFFE /* TKNAnyDecodable.swift */,
+				E17E90E2238C25B200CCDFFE /* TKNAnyCodable.swift */,
+			);
+			path = Helper;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -95,6 +118,7 @@
 				TargetAttributes = {
 					E17E90CD238C248C00CCDFFE = {
 						CreatedOnToolsVersion = 11.2.1;
+						LastSwiftMigration = 1120;
 					};
 				};
 			};
@@ -131,6 +155,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E17E90E1238C257E00CCDFFE /* TKNAnyDecodable.swift in Sources */,
+				E17E90DC238C24F400CCDFFE /* TKNGraphQLQuery.swift in Sources */,
+				E17E90DF238C256400CCDFFE /* TKNAnyEncodable.swift in Sources */,
+				E17E90E3238C25B200CCDFFE /* TKNAnyCodable.swift in Sources */,
+				E17E90DA238C24BC00CCDFFE /* TKNGraphQLHelper.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -260,6 +289,7 @@
 		E17E90D7238C248C00CCDFFE /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = JQ7JY6DD4V;
@@ -276,6 +306,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.alpersevindik.TKNGraphQLHelper;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -284,6 +315,7 @@
 		E17E90D8238C248C00CCDFFE /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = JQ7JY6DD4V;
