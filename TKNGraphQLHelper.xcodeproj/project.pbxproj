@@ -13,6 +13,7 @@
 		E17E90DF238C256400CCDFFE /* TKNAnyEncodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = E17E90DE238C256400CCDFFE /* TKNAnyEncodable.swift */; };
 		E17E90E1238C257E00CCDFFE /* TKNAnyDecodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = E17E90E0238C257E00CCDFFE /* TKNAnyDecodable.swift */; };
 		E17E90E3238C25B200CCDFFE /* TKNAnyCodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = E17E90E2238C25B200CCDFFE /* TKNAnyCodable.swift */; };
+		E17E90E5238D013E00CCDFFE /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = E17E90E4238D013E00CCDFFE /* LICENSE */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,8 @@
 		E17E90DE238C256400CCDFFE /* TKNAnyEncodable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TKNAnyEncodable.swift; sourceTree = "<group>"; };
 		E17E90E0238C257E00CCDFFE /* TKNAnyDecodable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TKNAnyDecodable.swift; sourceTree = "<group>"; };
 		E17E90E2238C25B200CCDFFE /* TKNAnyCodable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TKNAnyCodable.swift; sourceTree = "<group>"; };
+		E17E90E4238D013E00CCDFFE /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
+		E17E90E6238D015100CCDFFE /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -40,6 +43,8 @@
 		E17E90C4238C248C00CCDFFE = {
 			isa = PBXGroup;
 			children = (
+				E17E90E6238D015100CCDFFE /* README.md */,
+				E17E90E4238D013E00CCDFFE /* LICENSE */,
 				E17E90D0238C248C00CCDFFE /* TKNGraphQLHelper */,
 				E17E90CF238C248C00CCDFFE /* Products */,
 			);
@@ -145,6 +150,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E17E90E5238D013E00CCDFFE /* LICENSE in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

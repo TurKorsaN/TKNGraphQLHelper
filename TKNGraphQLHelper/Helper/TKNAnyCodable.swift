@@ -5,6 +5,7 @@
 //  Created by Alper Sevindik on 25.11.2019.
 //  Copyright © 2019 Alper Sevindik. All rights reserved.
 //
+import Foundation
 
 public struct TKNAnyCodable: Codable {
     public let value: Any

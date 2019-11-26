@@ -6,17 +6,18 @@
 //  Copyright © 2019 Alper Sevindik. All rights reserved.
 //
 //
+import Foundation
 
 public class TKNGraphQLHelper {
     
-    private let graphQLUrl: URL
+    private let graphQLUrl: URL?
     private let bundle: Bundle
     
     /**
      *@param graphQLUrl: Url for graphQL requests
      *@param bundle: Bundle for graphQL query files.
      */
-    public init(_ graphQLUrl: URL, bundle: Bundle) {
+    public init(_ graphQLUrl: URL?, bundle: Bundle) {
         self.graphQLUrl = graphQLUrl
         self.bundle = bundle
     }
@@ -38,32 +39,36 @@ public class TKNGraphQLHelper {
                                                success: @escaping (ReturnType) -> Void,
                                                failure: @escaping (String) -> Void) {
         
-        let body = createQueryBody(queryName, variables: variables)
-        
-        let bodyData = try! JSONEncoder().encode(body)
-        
-        let defaultSession = URLSession(configuration: .default)
-        
-        var request = URLRequest(url: graphQLUrl)
-        request.httpMethod = "POST"
-        request.httpBody = bodyData
-        headers.forEach { (key, value) in
-            request.addValue(value, forHTTPHeaderField: key)
-        }
-        let dataTask = defaultSession.dataTask(with: request) { data, response, error in
-            if let error = error {
-                failure(error.localizedDescription)
-            } else if let data = data, let response = response as? HTTPURLResponse, response.statusCode == 200 {
-                
-                do {
-                    let result = try JSONDecoder().decode(ReturnType.self, from: data)
-                    success(result)
-                } catch {
-                    failure("Decode error")
+        if let graphQLUrl = graphQLUrl {
+            let body = createQueryBody(queryName, variables: variables)
+            
+            let bodyData = try! JSONEncoder().encode(body)
+            
+            let defaultSession = URLSession(configuration: .default)
+            
+            var request = URLRequest(url: graphQLUrl)
+            request.httpMethod = "POST"
+            request.httpBody = bodyData
+            headers.forEach { (key, value) in
+                request.addValue(value, forHTTPHeaderField: key)
+            }
+            let dataTask = defaultSession.dataTask(with: request) { data, response, error in
+                if let error = error {
+                    failure(error.localizedDescription)
+                } else if let data = data, let response = response as? HTTPURLResponse, response.statusCode == 200 {
+                    
+                    do {
+                        let result = try JSONDecoder().decode(ReturnType.self, from: data)
+                        success(result)
+                    } catch {
+                        failure("Decode error")
+                    }
                 }
             }
+            dataTask.resume()
+        } else {
+            failure("URL is nil")
         }
-        dataTask.resume()
     }
     
     /**
@@ -77,10 +82,10 @@ public class TKNGraphQLHelper {
     }
     
     /**
-    * Creates query/mutation string with fragment support for graphQL request.
-    *
-    *@param queryName: Query file name without .graphql extension
-    */
+     * Creates query/mutation string with fragment support for graphQL request.
+     *
+     *@param queryName: Query file name without .graphql extension
+     */
     public func createQuery(_ queryName: String) -> String{
         var query = getContents(of: queryName)
         
